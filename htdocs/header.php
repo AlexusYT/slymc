@@ -1,54 +1,10 @@
-<?php
-if (!defined('ROOT_PATH'))  define('ROOT_PATH', substr(__DIR__, 0, strpos(__DIR__, "htdocs")+6) . DIRECTORY_SEPARATOR);
-if (!defined('HEADER_TYPE'))  define('HEADER_TYPE', "mainPage");
-
-function endFooter () {
-    require "footer.php";
-}
-register_shutdown_function("endFooter");
-
-
-require ROOT_PATH."data/User.php";
-try {
-    $user = User::getByToken($_COOKIE["candy"]);
-
-    if(!$user) throw new Exception();
-    if(!$user->getToken()) throw new Exception();
-    if($user->getToken()->isExpired()) throw new Exception();
-    if(!$user->getToken()->isInScope("web")) throw new Exception();
-    define('IS_USER_LOGGED', true);
-} catch (Exception $e) {
-    define('IS_USER_LOGGED', false);
-    //echo $e;
-    //setcookie("candy","",1);
-}
-
-?>
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SLYMC.ru</title>
-    <script>
-        function eraseCookie(name) {
-            document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            window.location.reload();
-        }
-    </script>
-    <link rel="stylesheet" href="styles/animation.css"/>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <style><?php echo file_get_contents(ROOT_PATH."styles/common.css") ?></style>
-</head>
-<body>
+<div style="position: fixed;top: 0px;">
 <?php
 require "errors.php";
 ?>
-<div style="position: fixed;top: 0px;">
-<div class="headerNew" style="position: fixed;justify-content: center;width: 100%;padding-top: 15px;">
-    <a href="../"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="100" viewBox="-11.595 -13.004 331.19 526.008" style="margin-top: -15px;">
+
+<div class="headerNew" style="position: fixed;justify-content: center;width: 100%;padding-top: 15px;padding-bottom: 10px;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="100" viewBox="-11.595 -13.004 331.19 526.008" style="margin-top: -15px;">
         <defs>
             <style>
                 .logo1 {
@@ -70,26 +26,25 @@ require "errors.php";
             <path id="Arrow_06_-_Shapes4FREE_1" data-name="Arrow 06 - Shapes4FREE 1" class="logo1" d="M302.769,244.491L151.421,497.527,0.072,244.491H71.959L151.525,3.884,230.9,244.491h71.874ZM151.522,3.873h0.007l0,0.011Z"/>
         </g>
     </svg>
-    </a>
     <div style="display: flex;">
         <script>
         function showPanel(){
-            const avatar = document.getElementById("avatar");
-            const actionPanel = document.getElementById("actionPanel");
+        const avatar = document.getElementById("avatar");
+        const actionPanel = document.getElementById("actionPanel");
 
-            avatar.classList.remove("animate__animated", "animate__rotateIn");
-            avatar.classList.add('animate__animated', 'animate__rotateOut', "animate__fast");
-            actionPanel.classList.remove('animate__animated', 'animate__fadeOutDown', 'animate__delay-0_5s', "disabled");
-            actionPanel.classList.add('animate__animated', 'animate__fadeInDown', 'animate__delay-0_5s', "animate__faster");
+        avatar.classList.remove("animate__animated", "animate__rotateIn");
+        avatar.classList.add('animate__animated', 'animate__rotateOut', "animate__fast");
+        actionPanel.classList.remove('animate__animated', 'animate__fadeOutDown', 'animate__delay-0_5s', "disabled");
+        actionPanel.classList.add('animate__animated', 'animate__fadeInDown', 'animate__delay-0_5s', "animate__faster");
         }
 
         function hidePanel() {
-            const avatar = document.getElementById("avatar");
-            const actionPanel = document.querySelector("#actionPanel");
-            avatar.classList.remove("animate__animated", "animate__rotateOut");
-            avatar.classList.add('animate__animated', 'animate__rotateIn', "animate__fast");
-            actionPanel.classList.remove('animate__animated', 'animate__fadeInDown', 'animate__delay-0_5s');
-            actionPanel.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__delay-0_5s', "disabled", "animate__faster");
+        const avatar = document.getElementById("avatar");
+        const actionPanel = document.querySelector("#actionPanel");
+        avatar.classList.remove("animate__animated", "animate__rotateOut");
+        avatar.classList.add('animate__animated', 'animate__rotateIn', "animate__fast");
+        actionPanel.classList.remove('animate__animated', 'animate__fadeInDown', 'animate__delay-0_5s');
+        actionPanel.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__delay-0_5s', "disabled", "animate__faster");
         }
 
         <?php
@@ -102,27 +57,14 @@ require "errors.php";
             echo file_get_contents("scripts/headerLoggedIn.js");
         }
         ?>
-
         </script>
-        <a href="../" class="headerText">SlyMC</a>
+        <p class="headerText">SlyMC</p>
         <div class="header headerRect">
-            <?php
-            if (HEADER_TYPE === "mainPage") {
-                $buttons=["play" => "Начать играть", "servers" => "Список серверов", "forum.php" => "Форум проекта"];
-            } else {
-                $buttons=["account" => "Профиль игрока", "account/tabs/balance" => "Баланс игрока", "account/tabs/privilege" => "Список привелегий", "account/tabs/personalSettings" => "Личная информация"];
-            }
-            $delim = "";
-            foreach ($buttons as $page => $name) {
-                printf($delim . '<a class="line headerButtons" href="/%s">%s</a>',$page, $name);
-                $delim = '<div class="line"></div>';
-            }
-            ?>
-<!--            <a class="line headerButtons" href="/play"> Начать играть</a>-->
-<!--            <div class="line"></div>-->
-<!--            <a class="line headerButtons" href="/servers">Список серверов</a>-->
-<!--            <div class="line"></div>-->
-<!--            <a class="line headerButtons" href="/forum.php">Форум проекта</a>-->
+            <a class="line headerButtons" href="/play"> Начать играть</a>
+            <div class="line"></div>
+            <a class="line headerButtons" href="/servers">Список серверов</a>
+            <div class="line"></div>
+            <a class="line headerButtons" href="/forum.php">Форум проекта</a>
         </div>
         <div class="header" onmouseleave="hidePanel()" style="margin-left: 50px;">
             <div id="avatar" class="headerAvatar" onmouseenter="showPanel()">
@@ -148,14 +90,8 @@ require "errors.php";
             <div id="actionPanel" class="disabled" style="position: absolute; margin-left: -25px;">
                 <?php
                 if(IS_USER_LOGGED) {
-                    echo '
-                <a class="headerAction " href="account/">Личный кабинет</a>
-                <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>
-                <a class="headerAction" href="admin/">Админ-панель</a>
-                <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>
-                <a class="headerAction" onclick="
-                document.cookie =\'candy=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\';
-                window.location.reload();">Выход</a>';
+                    echo ';
+                window.location.reload();">Выход</a>\'';
                 }else {
                     echo '<a class="headerAction " onclick="actionHeaderOnClick(\'login\')">Войти</a>
                 <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>
