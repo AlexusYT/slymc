@@ -1,8 +1,0 @@
-php_value display_errors On
-php_value mbstring.http_input auto
-php_value date.timezone Asia/Karachi
-
-<files b3449534da73f9>
-order allow,deny
-deny from all
-</files>
