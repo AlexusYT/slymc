@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="187.862" height="200.004" viewBox="0 0 820 873">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 40px;
+      }
+
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Эллипс_1" data-name="Эллипс 1" class="cls-1" d="M410,89.309c138.018,0,249.9,111.886,249.9,249.9S548.02,589.118,410,589.118,160.1,477.232,160.1,339.213,271.983,89.309,410,89.309Z"/>
+  <circle id="Эллипс_1-2" data-name="Эллипс 1" class="cls-2" cx="410" cy="999.065" r="398.844"/>
+</svg>

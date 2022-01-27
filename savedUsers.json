@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "playerID": 1,
+      "roleID": 1,
+      "username": "alexus_xx",
+      "displayUsername": "Alexus_XX",
+      "mail": "alexus_xx@mail.ru",
+      "mailVerified": 1,
+      "password": "3yF5Gx7q4gfGUxZ",
+      "twoFA": 0,
+      "donateMoney": 0,
+      "money": 0,
+      "HWID": "0",
+      "forumStatus": "0"
+    },
+    {
+      "playerID": 2,
+      "roleID": 2,
+      "username": "danya",
+      "displayUsername": "Danya",
+      "mail": "ggaaggaaggaa@yandex.ru",
+      "mailVerified": 1,
+      "password": "qwerty",
+      "twoFA": 0,
+      "donateMoney": 0,
+      "money": 0,
+      "HWID": "0",
+      "forumStatus": "0"
+    }
+  ]
+}
