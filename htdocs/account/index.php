@@ -83,6 +83,9 @@ echo '
     <div class="skinRect">
         <h4 class="skinText">Ваш скин и плащ:</h4>
         <div class="line" style="height: 0;"></div>
+        <div id="skin">
+        <canvas id="canvas" style="display: none" width="64" height="64"></canvas>
+        </div>
     </div>
     </td>
     <td>
@@ -95,10 +98,24 @@ echo '
         </div>
     </td>
 </table>
-</div>
+
+<script>
+function preventScroll(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+}
 
 
-';
+document.getElementById("skin").addEventListener("wheel", preventScroll);
+</script>
+<script src="../scripts/three.js"></script>
+</div>';
+
+echo "<script>";
+include ROOT_PATH."scripts/skin.js";
+echo "</script>";
 
 
 
