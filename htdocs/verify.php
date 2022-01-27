@@ -25,7 +25,7 @@ try {
 	if(!$db->query("UPDATE users SET users.MailVerified = 1 WHERE users.userID = '?s'", $user->getUserID())) return false;
 	$user->resign();
 
-	echo "Почта подтверждена. Нажмите <a href='../'> сюда </a>, чтобы вернуться обратно или подождите 2 секунды для автоматического возврата";
+	echo "Почта подтверждена. Нажмите <a href='../..'> сюда </a>, чтобы вернуться обратно или подождите 2 секунды для автоматического возврата";
 	echo "<script> setTimeout(() => { window.location = \"../\"; }, 2000); </script>";
 
 } catch (Exception $e) {
