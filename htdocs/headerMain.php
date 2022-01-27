@@ -10,12 +10,11 @@ register_shutdown_function("endFooter");
 
 require ROOT_PATH."data/User.php";
 try {
-    $user = User::getByToken($_COOKIE["candy"]);
-
-    if(!$user) throw new Exception();
-    if(!$user->getToken()) throw new Exception();
-    if($user->getToken()->isExpired()) throw new Exception();
-    if(!$user->getToken()->isInScope("web")) throw new Exception();
+    $GLOBALS['USER'] = User::getByToken($_COOKIE["candy"]);
+    if(!$GLOBALS['USER']) throw new Exception();
+    if(!$GLOBALS['USER']->getToken()) throw new Exception();
+    if($GLOBALS['USER']->getToken()->isExpired()) throw new Exception();
+    if(!$GLOBALS['USER']->getToken()->isInScope("web")) throw new Exception();
     define('IS_USER_LOGGED', true);
 } catch (Exception $e) {
     define('IS_USER_LOGGED', false);
@@ -39,7 +38,7 @@ try {
         }
     </script>
     <link rel="stylesheet" href="styles/animation.css"/>
-    <link rel="stylesheet" href="styles/style.css"/>
+
     <style><?php echo file_get_contents(ROOT_PATH."styles/common.css") ?></style>
 </head>
 <body>
@@ -148,8 +147,14 @@ require "errors.php";
             <div id="actionPanel" class="disabled" style="position: absolute; margin-left: -25px;">
                 <?php
                 if(IS_USER_LOGGED) {
-                    echo ';
-                window.location.reload();">Выход</a>\'';
+                    echo '
+                <a class="headerAction " href="account/">Личный кабинет</a>
+                <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>
+                <a class="headerAction" href="admin/">Админ-панель</a>
+                <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>
+                <a class="headerAction" onclick="
+                document.cookie =\'candy=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;\';
+                window.location.reload();">Выход</a>';
                 }else {
                     echo '<a class="headerAction " onclick="actionHeaderOnClick(\'login\')">Войти</a>
                 <div class="line" style="height: 0; width: 135px; margin-left: 27px;"></div>

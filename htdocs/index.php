@@ -1,6 +1,91 @@
 <?php
 require "headerMain.php";
 ?>
+<style>
+
+
+    .playRect {
+        margin-left: auto;
+        margin-right: auto;
+        width: 701px;
+        height: 85px;
+        border: 2px solid #7a7a7a;
+        box-sizing: border-box;
+        border-radius: 50px;
+        /* display: flex; */
+        /* flex-direction: row; */
+        align-items: center;
+    }
+
+    .zoom {
+        transition: 1s;
+    }
+
+    .zoom:hover {
+        transform: scale(1.2);
+    }
+
+    .startButton {
+        font-family: Comfortaa, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 72px;
+        text-align: center;
+        margin-left: 30px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .h1frame2 {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 320px;
+        text-align: center;
+        font-family: Comfortaa, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 72px;
+        line-height: 80px;
+    }
+
+    .liText {
+        font-size: 30px;
+        margin-top: 15px;
+        margin-bottom: 0;
+        font-family: Comfortaa, serif;
+    }
+
+    .liStyle {
+        margin-right: auto;
+        margin-left: auto;
+        width: 700px;
+        height: fit-content;
+        border: 2px solid #7a7a7a;
+        box-sizing: border-box;
+        border-radius: 30px;
+    }
+
+    .serverButtons {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        margin-top: 20px;
+        /*border: 2px solid #ffffff;*/
+        box-sizing: border-box;
+        border-radius: 50px;
+        width: 400px;
+        height: 200px;
+    }
+
+    .serverText {
+        font-family: Comfortaa, serif;
+        font-size: 28px;
+        text-align: center;
+        border: 2px solid #7a7a7a;
+    }
+
+
+</style>
 <div>
     <div style="background-color: rgba(0, 0, 0, 0.65); width: 1400px; margin-left: auto; margin-right: auto; padding-top: 200px; padding-bottom: 400px;">
     <h1 class="h1"> Начни играть по-новому</h1>
