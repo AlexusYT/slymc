@@ -39,7 +39,7 @@ try {
         }
     </script>
     <link rel="stylesheet" href="styles/animation.css"/>
-    <link rel="stylesheet" href="styles/style.css"/>
+
     <style><?php echo file_get_contents(ROOT_PATH."styles/common.css") ?></style>
 </head>
 <body>
