@@ -1,0 +1,43 @@
+<div class="footer">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="100" viewBox="-11.595 -13.004 331.19 526.008" style="margin-top: -15px;">
+    <defs>
+        <style>
+            .logo1 {
+                fill: #23301c;
+                fill-rule: evenodd;
+                filter: url(#filter);
+            }
+        </style>
+        <clipPath id="clip-path">
+            <rect width="308" height="500"/>
+        </clipPath>
+        <filter id="filter" x="0.063" y="3.875" width="302.719" height="493.656" filterUnits="userSpaceOnUse">
+            <feImage preserveAspectRatio="none" x="0.0625" y="3.875" width="302.719" height="493.656" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAyLjcxOSIgaGVpZ2h0PSI0OTMuNjU2IiB2aWV3Qm94PSIwIDAgMzAyLjcxOSA0OTMuNjU2Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjE1MS4zNTkiIHkxPSI0OTMuNjU2IiB4Mj0iMTUxLjM1OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNjM3OWMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjM2M2NWFhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIzMDIuNzE5IiBoZWlnaHQ9IjQ5My42NTYiLz4KPC9zdmc+Cg=="/>
+            <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+            <feBlend result="blend" in2="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g clip-path="url(#clip-path)">
+        <path id="Arrow_06_-_Shapes4FREE_1" data-name="Arrow 06 - Shapes4FREE 1" class="logo1" d="M302.769,244.491L151.421,497.527,0.072,244.491H71.959L151.525,3.884,230.9,244.491h71.874ZM151.522,3.873h0.007l0,0.011Z"/>
+    </g>
+</svg>
+<p class="headerText">SlyMC</p>
+
+    <div class="footerVoice">
+        <ul>
+            <li style="list-style: none"><a>Голосуйте за нас на следующих платформах:</a></li>
+            <li><a>платформа1</a></li>
+            <li><a>платформа2</a></li>
+            <li><a>платформа3</a></li>
+        </ul>
+    </div>
+    <div class="footerLinks">
+        <ul style="list-style: none">
+            <li><a>Политика конфеденциальности</a></li>
+            <li><a>Правила</a></li>
+            <li><a>Сотрудничество</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
