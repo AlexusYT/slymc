@@ -114,6 +114,14 @@ document.getElementById("skin").addEventListener("wheel", preventScroll);
 </div>';
 
 echo "<script>";
+//include "three.min.js";
+/*$a = json_decode(file_get_contents('Coverage.json'));
+$sText = $a[1]->text;
+$sOut = "";
+foreach ($a[1]->ranges as $iPos => $oR) {
+	$sOut .= substr($sText, $oR->start, ($oR->end-$oR->start))." \n";
+}
+file_put_contents("three.min.js", $sOut);*/
 include ROOT_PATH."scripts/skin.js";
 echo "</script>";
 
