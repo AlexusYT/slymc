@@ -10,7 +10,7 @@
     <clipPath id="clip-path">
       <rect width="308" height="500"/>
     </clipPath>
-    <filter id="filter" x="0.063" y="3.875" width="302.719" height="493.656" filterUnits="userSpaceOnUse">
+    <filter id="filter" x="0.063" y="3.875" width="302.719" height="493.656">
       <feImage preserveAspectRatio="none" x="0.0625" y="3.875" width="302.719" height="493.656" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAyLjcxOSIgaGVpZ2h0PSI0OTMuNjU2IiB2aWV3Qm94PSIwIDAgMzAyLjcxOSA0OTMuNjU2Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjE1MS4zNTkiIHkxPSI0OTMuNjU2IiB4Mj0iMTUxLjM1OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNjM3OWMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjM2M2NWFhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIzMDIuNzE5IiBoZWlnaHQ9IjQ5My42NTYiLz4KPC9zdmc+Cg=="/>
       <feComposite result="composite" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend" in2="SourceGraphic"/>
