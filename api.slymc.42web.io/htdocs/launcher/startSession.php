@@ -1,4 +1,5 @@
 <?php
+include_once "../prependFile.php";
 $supportedPlatforms = ["windows", "linux"];
 
 if(!in_array($_POST['platform'], $supportedPlatforms)) sendError("unsupported_os");
@@ -10,32 +11,13 @@ try {
 
 	$pubKey = str_replace(["-----BEGIN PUBLIC KEY-----", "\n-----END PUBLIC KEY-----"], "", openssl_pkey_get_details($res)["key"]);
 	$privKey = str_replace(["-----BEGIN PRIVATE KEY-----\n", "\n-----END PRIVATE KEY-----"], "", $privKey);
-	$conn = new mysqli('sql209.epizy.com', 'epiz_30774026', 'x6hyKkXWBV', 'epiz_30774026_slymc');
-	$conn->set_charset("utf8mb4");
-	if (!($stmt = $conn->prepare("INSERT INTO launcherAuth (public, private, platform) VALUES (?,?,?)"))) throw new Exception();
-	$hash = hash("sha256", $pubKey);
-	if (!$stmt->bind_param("sss", $hash, $privKey, $_POST['platform'])) throw new Exception();
-	if (!$stmt->execute()){
-
-		//echo  $conn->error;
+	$currentDate = new DateTime("now", new DateTimeZone("utc"));
+	$createdAt = $currentDate->format("Y-m-d H:i:s");
+	if (!Utils::getDb()->query("INSERT INTO launcherAuth (public, private, platform, timestamp) VALUES ('?s','?s','?s', '?s')", Utils::getSha256($pubKey), $privKey, $_POST['platform'], $createdAt)){
 		throw new Exception();
 	}
-	if (!$stmt->close()) throw new Exception();
-	if (!$conn->close()) throw new Exception();
-	echo json_encode(array(
-		'status' => 'ok',
-		'token' => $pubKey
-	));
+	sendSuccess(['token' => $pubKey]);
 }catch (Throwable $throwable){
-	//echo $throwable;
 	sendError("internal_error");
 }
 
-
-function sendError($error){
-
-	die(json_encode(array(
-		'status' => 'error',
-		'error' => $error
-	)));
-}
