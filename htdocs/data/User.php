@@ -67,6 +67,15 @@ WHERE token = '?s' LIMIT 1";
 		return self::getFromArray(Utils::getDb()->getRow("SELECT * FROM `users` WHERE userID = '?s'", $id));
 	}
 
+	public static function getOnlineUsers(int $serverId): array
+	{
+		$users = [];
+		foreach (Utils::getDb()->getAll("SELECT * FROM playersOnServers INNER JOIN users ON playersOnServers.userID = users.userID WHERE serverID = '?i' AND onServer = 1 ORDER BY users.roleID", $serverId) as $row){
+			$users[] = self::getFromArray($row);
+		}
+		return $users;
+	}
+
 	private static function getSaved($criteria): ?User
 	{
 		if(($arr = Utils::getSavedUser($criteria))!=null) {
@@ -97,6 +106,14 @@ WHERE token = '?s' LIMIT 1";
 		$class = new self();
 		$result = unserialize(Utils::getSerializedStr($class, get_object_vars($class), $row));
 		$result->token = Token::getFromArray($row);
+		if($result->head === "-"){
+			$result->head = Utils::getDefaultHead();
+		}
+
+		if(($arr = Utils::getSavedUser($result->userID))!=null) {
+			$result->setFromArray($arr);
+		}
+
 		return $result;
 	}
 
