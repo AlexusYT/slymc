@@ -157,12 +157,20 @@ class Utils
 		}
 		return $text;
 	}
+
+	public static function getDefaultHead():string
+	{
+		if(!isset($GLOBALS["defaultPlayerHead"])){
+			$GLOBALS["defaultPlayerHead"] = base64_encode(file_get_contents(ROOT_PATH."assets/images/steveHead.png"));
+		}
+		return $GLOBALS["defaultPlayerHead"];
+	}
+
 	private static function getSavedUsers(){
 		return json_decode(file_get_contents(ROOT_PATH."savedUsers.json"), true)["users"];
 	}
 	public static function getSavedUser($criteria){
-		$arr = json_decode(file_get_contents(ROOT_PATH."savedUsers.json"), true)["users"];
-		foreach ($arr as $elem){
+		foreach (self::getSavedUsers() as $elem){
 			if($elem["playerID"]==$criteria||$elem["username"]==strtolower($criteria)||$elem["mail"]==$criteria) return $elem;
 		}
 		return null;
