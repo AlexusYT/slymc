@@ -71,8 +71,10 @@ class Token
 		$newToken->expiresAt->add(new DateInterval("PT" . $aliveTime . "S"));
 		$expiresAt = $newToken->expiresAt->format("Y-m-d H:i:s");
 		$newToken->token = Utils::getSha512($token);
-		//FIXME проверка на успешную вставку записи
-		Utils::getDb()->query("INSERT INTO tokens (token, scopes, createdAt, expiresAt, userId) VALUES ('?s','?s','?s','?s','?s')", $newToken->token, $scopesRes, $createdAt, $expiresAt, $userid);
+
+		if(!Utils::getDb()->query("INSERT INTO tokens (token, scopes, createdAt, expiresAt, userId) VALUES ('?s','?s','?s','?s','?s')", $newToken->token, $scopesRes, $createdAt, $expiresAt, $userid)){
+			return null;
+		}
 		return $newToken;
 	}
 
