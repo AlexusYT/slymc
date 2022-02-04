@@ -2,6 +2,7 @@
 if (!defined('ROOT_PATH')) define('ROOT_PATH', substr(__DIR__, 0, strpos(__DIR__, "htdocs")+6) . DIRECTORY_SEPARATOR);
 
 use PHPMailer\PHPMailer\PHPMailer;
+require_once ROOT_PATH."utils/SafeMySQL.php";
 
 class Utils
 {
@@ -180,6 +181,10 @@ class Utils
 	public static function getSha512(string $str): string
 	{
 		return (string) hash('sha512', $str);
+	}
+	public static function getSha256(string $str): string
+	{
+		return (string) hash('sha256', $str);
 	}
 
 	/**
