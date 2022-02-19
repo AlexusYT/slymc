@@ -88,6 +88,30 @@ require "headerMain.php";
 </style>
 <div>
     <div style="background-color: rgba(0, 0, 0, 0.65); width: 1400px; margin-left: auto; margin-right: auto; padding-top: 200px; padding-bottom: 400px;">
+        <?php
+        if(IS_USER_LOGGED)
+        echo '<h2 class="h2">TODO:</h2>
+        <div class="liStyle">
+            <span class="liText" style="font-weight: bolder; font-size: 40px"> Сайт:</span>
+            <ul class="liText">
+                <li>Переписать login и register на ajax и поместить в хедер</li>
+                <li>Перенести анимации на js и отказаться от библиотеки анимации на css</li>
+                <li>Настроить отправку почты с почтового ящика сайта</li>
+                <li>Переделать верификацию аккаунта (verify.php) по почте под текущие изменения </li>
+            </ul>
+            <span class="liText" style="font-weight: bolder; font-size: 40px"> Админка:</span>
+            <ul class="liText">
+                <li>Переделать все на новый лейаут из фигмы </li>
+                <li>Допилить обновление юзера </li>
+                <li>Исправить краш скрипта при попытке редактирования новых аккаунтов </li>
+            </ul>
+            <span class="liText" style="font-weight: bolder; font-size: 40px"> Лаунчер:</span>
+            <ul class="liText">
+                <li>Подумать над тем, как отображать инфу о пользователе </li>
+            </ul>
+        </div>';
+        ?>
+
     <h1 class="h1"> Начни играть по-новому</h1>
     <h2 class="h2">Наши сервера подарят вам новые положительные эмоции</h2>
     <div class="playRect zoom">
